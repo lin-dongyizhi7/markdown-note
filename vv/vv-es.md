@@ -568,3 +568,49 @@ Limitations of Testing: No matter how creative and comprehensive testing is, the
 The importance of Test Case design ** : Designing and creating effective test cases is key to ensuring software quality.
 - ** Test Case Design Method ** : Using a combination of black box and white box test methods, software can be tested more comprehensively.
 - ** Specific methods ** : Equivalence partitioning, boundary value analysis, causal graphs, false guesses, statement coverage, branch coverage, condition coverage, decision/condition coverage, and multiple condition coverage can help generate effective test cases.
+
+
+--- 
+
+## Functional testing technique
+### 1. Black box test
+Black box testing treats the program as a black box, and the tester does not care about the internal structure and working principle of the program, only the input and output. The goal of black box testing is to find defects by running test cases related to possible program errors. The main variants of black box testing include equivalence class partitioning and boundary value analysis.
+
+### 2. Equivalence Partitioning
+Equivalence class partitioning is a black box testing technique that divides the input field of a program into several data classes, each of which represents a set of valid or invalid input conditions. In this way, the number of test cases can be reduced while ensuring that all possible input cases are covered.
+
+Steps:
+
+Identify equivalence classes: Each input condition is analyzed and divided into two or more groups, defining valid and invalid equivalence classes.
+Generate test cases: Design test cases for each equivalence class.
+Equivalence class type:
+
+Valid equivalence class: represents a valid input to the program.
+Invalid equivalence class: represents an incorrect input value.
+Heuristic rules (for identifying equivalence classes) :
+
+Value range: For example, if the range of counters is 1 to 999, the valid classes are 1 <= counters <= 999, and the invalid classes are counters < 1 and counters > 999.
+Number of values: For example, a car can have up to 6 owners, then valid classes are 1 to 6 owners, invalid classes are no owners and more than 6 owners.
+Logical condition: For example, if the first character of an identifier should be a letter, a valid class identifier starts with a letter, and an invalid class identifier does not start with a letter.
+Set of input values: For example, if the vehicle type can be a bus, truck, car, or motorcycle, then each type is a valid class and any other type of vehicle is an invalid class.
+Special case: If it is believed that the program will not treat all items in an equivalence class equally, then the equivalence class should be further subdivided into smaller equivalence classes.
+### 3. Boundary Value Analysis
+Boundary value analysis is a testing technique that focuses on boundary conditions, not only selecting arbitrary values in valid and invalid equivalence classes as test cases, but also paying special attention to boundary values in input and output fields.
+
+Rules:
+Value range: For ranges [min, max], test cases are designed for min, max, min-1, and max+1, respectively.
+Number of values: For minimum values min and maximum values max, design test cases for min, max, min-1, and max+1, respectively.
+Ordered set: If the input is an ordered set, pay special attention to the first and last elements.
+Output data: The same applies to output data, ensuring that boundary values are also tested.
+### 4. Examples
+An example given in the file is a banking application where users can perform certain banking transactions. In order to access trading information, the following inputs are required:
+
+Bank code: Blank or three digits, the first digit must be greater than 1.
+Branch code: four digits, the first digit must be greater than 0.
+Account number: five digits.
+Password: five-digit alphanumeric.
+Order: Blank or string "Checkbook" or "Transactions".
+By performing equivalence class partitioning and boundary value analysis on these input conditions, a series of test cases can be generated to ensure that all possible input cases are covered, including valid and invalid inputs.
+
+### Sum up
+Black box testing technology, especially equivalence class partition and boundary value analysis, is an important means to ensure software quality. By properly dividing equivalence classes and paying attention to boundary conditions, testers can effectively reduce the number of test cases, while improving test coverage and efficiency.
