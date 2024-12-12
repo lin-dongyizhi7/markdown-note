@@ -580,36 +580,35 @@ Black box testing treats the program as a black box, and the tester does not car
 Equivalence class partitioning is a black box testing technique that divides the input field of a program into several data classes, each of which represents a set of valid or invalid input conditions. In this way, the number of test cases can be reduced while ensuring that all possible input cases are covered.
 
 - **Steps:**
-
-Identify equivalence classes: Each input condition is analyzed and divided into two or more groups, defining valid and invalid equivalence classes.
-Generate test cases: Design test cases for each equivalence class.
+- Identify equivalence classes: Each input condition is analyzed and divided into two or more groups, defining valid and invalid equivalence classes.
+- Generate test cases: Design test cases for each equivalence class.
 
 - **Equivalence class type:**
-Valid equivalence class: represents a valid input to the program.
-Invalid equivalence class: represents an incorrect input value.
+- Valid equivalence class: represents a valid input to the program.
+- Invalid equivalence class: represents an incorrect input value.
 
 - **Heuristic rules (for identifying equivalence classes) :**
-Value range: For example, if the range of counters is 1 to 999, the valid classes are 1 <= counters <= 999, and the invalid classes are counters < 1 and counters > 999.
-Number of values: For example, a car can have up to 6 owners, then valid classes are 1 to 6 owners, invalid classes are no owners and more than 6 owners.
-Logical condition: For example, if the first character of an identifier should be a letter, a valid class identifier starts with a letter, and an invalid class identifier does not start with a letter.
-Set of input values: For example, if the vehicle type can be a bus, truck, car, or motorcycle, then each type is a valid class and any other type of vehicle is an invalid class.
-Special case: If it is believed that the program will not treat all items in an equivalence class equally, then the equivalence class should be further subdivided into smaller equivalence classes.
+- Value range: For example, if the range of counters is 1 to 999, the valid classes are 1 <= counters <= 999, and the invalid classes are counters < 1 and counters > 999.
+- Number of values: For example, a car can have up to 6 owners, then valid classes are 1 to 6 owners, invalid classes are no owners and more than 6 owners.
+- Logical condition: For example, if the first character of an identifier should be a letter, a valid class identifier starts with a letter, and an invalid class identifier does not start with a letter.
+- Set of input values: For example, if the vehicle type can be a bus, truck, car, or motorcycle, then each type is a valid class and any other type of vehicle is an invalid class.
+- Special case: If it is believed that the program will not treat all items in an equivalence class equally, then the equivalence class should be further subdivided into smaller equivalence classes.
 #### 3. Boundary Value Analysis
 Boundary value analysis is a testing technique that focuses on boundary conditions, not only selecting arbitrary values in valid and invalid equivalence classes as test cases, but also paying special attention to boundary values in input and output fields.
 
 - **Rules:**
-Value range: For ranges [min, max], test cases are designed for min, max, min-1, and max+1, respectively.
-Number of values: For minimum values min and maximum values max, design test cases for min, max, min-1, and max+1, respectively.
-Ordered set: If the input is an ordered set, pay special attention to the first and last elements.
-Output data: The same applies to output data, ensuring that boundary values are also tested.
+- Value range: For ranges [min, max], test cases are designed for min, max, min-1, and max+1, respectively.
+- Number of values: For minimum values min and maximum values max, design test cases for min, max, min-1, and max+1, respectively.
+- Ordered set: If the input is an ordered set, pay special attention to the first and last elements.
+- Output data: The same applies to output data, ensuring that boundary values are also tested.
 #### 4. Examples
 An example given in the file is a banking application where users can perform certain banking transactions. In order to access trading information, the following inputs are required:
 
-Bank code: Blank or three digits, the first digit must be greater than 1.
-Branch code: four digits, the first digit must be greater than 0.
-Account number: five digits.
-Password: five-digit alphanumeric.
-Order: Blank or string "Checkbook" or "Transactions".
+- Bank code: Blank or three digits, the first digit must be greater than 1.
+- Branch code: four digits, the first digit must be greater than 0.
+- Account number: five digits.
+- Password: five-digit alphanumeric.
+- Order: Blank or string "Checkbook" or "Transactions".
 
 By performing equivalence class partitioning and boundary value analysis on these input conditions, a series of test cases can be generated to ensure that all possible input cases are covered, including valid and invalid inputs.
 
