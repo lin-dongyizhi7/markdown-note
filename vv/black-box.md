@@ -86,35 +86,35 @@
 For each function, we divide the input data into different equivalent classes. An equivalent class is a set of input data that is expected to produce the same result. Here are some examples based on the above features:
 
 #### Text translation
-- ** Effective equivalent class **:
-- Correct source language code (e.g. "en", "es", "zh-cn", "zh-tw")
-- Correct target language code
-- Legal text content (for example, strings that do not exceed the maximum character limit)
+- **Effective equivalent class**:
+ - Correct source language code (e.g. "en", "es", "zh-cn", "zh-tw")
+ - Correct target language code
+ - Legal text content (for example, strings that do not exceed the maximum character limit)
 
-- ** Invalid equivalent class **:
-- Unknown source language code
-- Unknown target language code
-- Text that exceeds the maximum character limit
-- Text that contains special characters or encoding errors
+- **Invalid equivalent class**:
+ - Unknown source language code
+ - Unknown target language code
+ - Text that exceeds the maximum character limit
+ - Text that contains special characters or encoding errors
 
 #### Image translation
-- ** Effective equivalent class **:
-- Supported image formats (e.g..png,.jpg)
-- Images with sufficient clarity to ensure accurate OCR recognition
+- **Effective equivalent class**:
+ - Supported image formats (e.g..png,.jpg)
+ - Images with sufficient clarity to ensure accurate OCR recognition
 
-- ** Invalid equivalent class **:
-- Unsupported image formats
-- Blurred or low resolution images
-- File corrupted or incomplete picture
+- **Invalid equivalent class**:
+ - Unsupported image formats
+ - Blurred or low resolution images
+ - File corrupted or incomplete picture
 
 #### automatic correction
-- ** Effective equivalent class **:
-- English words containing misspellings
-- Common English grammar errors
+- **Effective equivalent class**:
+ - English words containing misspellings
+ - Common English grammar errors
 
-- ** Invalid equivalent class **:
-- Non-English words
-- English words that have been spelled correctly
+- **Invalid equivalent class**:
+ - Non-English words
+ - English words that have been spelled correctly
 
 2. Boundary value analysis
 Boundary value analysis is a supplement to equivalent class partitioning and is specifically used to test the limit cases of inputs and outputs. For example:
@@ -126,32 +126,32 @@ Boundary value analysis is a supplement to equivalent class partitioning and is 
 Based on the results of equivalent class partitioning and boundary value analysis, we can construct concrete test cases. Here are some examples:
 
 #### Test case 1: Text translation - from Spanish to English
-- ** Enter **: 'translate text-s es-d en Hola'
-- ** Expected output **: 'hi'
+- **Enter**: 'translate text-s es-d en Hola'
+- **Expected output**: 'hi'
 
 #### Test case 2: Image translation - from Spanish stop signs to English
-- ** Enter **: 'translate image-s es-d en parking_sign.png'
-- ** Expected output **: The text in the image is correctly translated into English, for example "Parking"
+- **Enter**: 'translate image-s es-d en parking_sign.png'
+- **Expected output**: The text in the image is correctly translated into English, for example "Parking"
 
 #### Test Case 3: Autocorrect - Spelling errors in English words
-- ** Enter **: 'translate text-s en-d en correect'
-- ** Expected output **: 'correct' (assuming autocorrect is on)
+- **Enter**: 'translate text-s en-d en correect'
+- **Expected output**: 'correct' (assuming autocorrect is on)
 
 #### Test case 4: Invalid source language code
-- ** Enter **: 'translate text-s xx-d en Hola'
-- ** Expected output **: Error message indicating that the source language code is invalid
+- **Enter**: 'translate text-s xx-d en Hola'
+- **Expected output**: Error message indicating that the source language code is invalid
 
 #### Test case 5: Text length exceeded limit
-- ** Enter **: 'translate text-s es-d en' (plus a very long Spanish text)
-- ** Expected output **: Error message indicating that the text exceeds the maximum number of characters
+- **Enter**: 'translate text-s es-d en' (plus a very long Spanish text)
+- **Expected output**: Error message indicating that the text exceeds the maximum number of characters
 
 #### Test case 6: Image file format not supported
-- ** Enter **: 'translate image-s es-d en unsupported_format.bmp'
-- ** Expected output **: Error message indicating that the file format is not supported
+- **Enter**: 'translate image-s es-d en unsupported_format.bmp'
+- **Expected output**: Error message indicating that the file format is not supported
 
 #### Test case 7: Images are blurred
-- ** Enter **: 'translate image-s es-d en blurry_image.png'
-- ** Expected output **: OCR recognition failure or partial recognition success but obvious error
+- **Enter**: 'translate image-s es-d en blurry_image.png'
+- **Expected output**: OCR recognition failure or partial recognition success but obvious error
 
 ### 4. Execute the test case
 Apply these test cases to the smart Spanish assistant and record whether the actual output agrees with the expected output. If any discrepancies are found, it may be necessary to further investigate and fix the problem in the software.
