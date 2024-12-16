@@ -99,22 +99,22 @@ For each function, we divide the input data into different equivalent classes. A
 
 #### Image translation
 - **Effective equivalent class**:
- - Supported image formats (e.g..png,.jpg)
- - Images with sufficient clarity to ensure accurate OCR recognition
+  - Supported image formats (e.g..png,.jpg)
+  - Images with sufficient clarity to ensure accurate OCR recognition
 
 - **Invalid equivalent class**:
- - Unsupported image formats
- - Blurred or low resolution images
- - File corrupted or incomplete picture
+  - Unsupported image formats
+  - Blurred or low resolution images
+  - File corrupted or incomplete picture
 
 #### automatic correction
 - **Effective equivalent class**:
- - English words containing misspellings
- - Common English grammar errors
+  - English words containing misspellings
+  - Common English grammar errors
 
 - **Invalid equivalent class**:
- - Non-English words
- - English words that have been spelled correctly
+  - Non-English words
+  - English words that have been spelled correctly
 
 2. Boundary value analysis
 Boundary value analysis is a supplement to equivalent class partitioning and is specifically used to test the limit cases of inputs and outputs. For example:
