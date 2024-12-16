@@ -87,15 +87,15 @@ For each function, we divide the input data into different equivalent classes. A
 
 #### Text translation
 - **Effective equivalent class**:
- - Correct source language code (e.g. "en", "es", "zh-cn", "zh-tw")
- - Correct target language code
- - Legal text content (for example, strings that do not exceed the maximum character limit)
+  - Correct source language code (e.g. "en", "es", "zh-cn", "zh-tw")
+  - Correct target language code
+  - Legal text content (for example, strings that do not exceed the maximum character limit)
 
 - **Invalid equivalent class**:
- - Unknown source language code
- - Unknown target language code
- - Text that exceeds the maximum character limit
- - Text that contains special characters or encoding errors
+  - Unknown source language code
+  - Unknown target language code
+  - Text that exceeds the maximum character limit
+  - Text that contains special characters or encoding errors
 
 #### Image translation
 - **Effective equivalent class**:
@@ -116,7 +116,7 @@ For each function, we divide the input data into different equivalent classes. A
   - Non-English words
   - English words that have been spelled correctly
 
-2. Boundary value analysis
+### 2. Boundary value analysis
 Boundary value analysis is a supplement to equivalent class partitioning and is specifically used to test the limit cases of inputs and outputs. For example:
 
 - For text length, test the minimum (0 characters) and maximum (let's say 1000 characters).
