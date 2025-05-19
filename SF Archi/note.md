@@ -336,3 +336,37 @@ Language Certification Center（语言认证中心，简称CC）的核心业务�
     - **可扩展性**：对等网络风格（P2P）表现最佳（++），易于添加新节点扩展网络；客户端 - 服务器 + 移动代码（C/S + Mobile Code）和客户端 - 服务器（单服务器）为中级（+），但单服务器架构扩展时可能需大量改造。
 
     - **可测试性**：客户端 - 服务器（单服务器）表现最佳（++），集中式架构便于测试；客户端 - 服务器 + 移动代码（C/S + Mobile Code）次之（+），移动代码增加测试复杂性；对等网络风格（P2P）最差（-），分布式环境下数据一致性和节点交互复杂，测试难度大。
+
+## Example
+
+#### 汽车公司设计车载软件，需采集传感器数据（燃油量、外部光线、速度、温度等），控制执行器（加速 / 刹车、灯光、空调等）。不同车型共享核心设计，但通过插件实现特定功能。应采用哪些架构模式 / 风格？说明理由。
+
+**Event Bus Style**
+
+* **Rationale:** Sensors and actuators are treated as independent components that are decoupled through an event bus. Sensors publish data events (e.g., "low fuel level"), while actuators subscribe to relevant events and trigger actions (e.g., "turn on the fuel warning light"). This loose coupling design facilitates the addition of new sensors or actuators, or modification of control logic, meeting the system's scalability requirements.
+
+**Microkernel Pattern**
+
+* **Rationale:** The core functionalities of in-vehicle software (such as basic sensor data processing, safety controls) serve as the microkernel, whereas differentiated features for specific vehicle models (like seat heating control in high-end models) act as plugins (External Server). The microkernel defines standard interfaces, allowing plugins to extend functionalities via these interfaces, which caters to the need for easily adapting to different combinations of features.
+
+#### 写出 3 种可用性策略名称并简要解释。
+
+**Active Redundancy**
+*Explanation:* Deploy multiple identical components (e.g., server clusters). When the primary component fails, the system automatically switches to a redundant one to ensure uninterrupted service. For example, an active-active data center setup uses load balancers to synchronize state in real time, and traffic is automatically redirected to the standby center if the primary one fails.
+
+**Heartbeat Monitoring**
+*Explanation:* Components periodically send heartbeat signals to a monitoring module. If no heartbeat is received, the monitoring module triggers a failure recovery process. For example, containerized applications use Kubernetes liveness probes to detect container status and automatically restart unresponsive containers.
+
+**Hot Restart**
+*Explanation:* Restart a component without interrupting service by smoothly switching between old and new instances, achieving zero downtime. For example, a web server performs rolling updates to gradually replace old instances while ensuring continuous request processing.
+
+#### 写出移动代码风格的类型并简要解释。
+
+**Code on Demand**
+*Explanation:* The client initially downloads only the core code and dynamically loads additional functionality as needed. For example, a web page asynchronously loads plugin modules via JavaScript to reduce the initial loading time.
+
+**Remote Evaluation**
+*Explanation:* The client possesses the code but lacks the resources to execute it, so it sends the code to a remote server for execution and receives the result. For example, front-end JavaScript code invokes a WebAssembly module on the server side to render complex 3D graphics.
+
+**Mobile Agent**
+*Explanation:* Code and data are packaged into an agent that autonomously migrates to a target host to perform tasks. For example, smart contract agents in blockchain nodes automatically migrate to transaction-related nodes to complete validation logic.
